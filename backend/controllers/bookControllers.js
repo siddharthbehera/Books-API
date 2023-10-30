@@ -106,7 +106,7 @@ const deleteBook = asyncHandler(async(req, res) => {
     res.status(204).json({message: "Book deleted successfully"});
   }
 }
-)
+);
 
 
 module.exports = {addNewBook, getBooks, bookDetail, updateBookDetail, deleteBook};
