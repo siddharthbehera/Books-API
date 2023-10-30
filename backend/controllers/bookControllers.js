@@ -49,9 +49,9 @@ const getBooks = asyncHandler( async(req, res) =>{
 const bookDetail = asyncHandler(async (req, res) => {
     try{
         const summary = await Book.findById(req.params.bookId);
-        res.json(summary.summary);
+        res.status(201).json(summary.summary);
     } catch (error){
-        res.status(400);
+        res.status(404);
         throw new Error(error.message);
     }
     // const {bookId} = req.body;
