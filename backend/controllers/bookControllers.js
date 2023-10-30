@@ -5,7 +5,7 @@ const addNewBook = asyncHandler(async (req, res) => {
     const {bookTitle, summary, auther} = req.body;
 
     if (!bookTitle || !summary || !auther) {
-        resizeBy.status(400);
+        res.status(400);
         throw new Error("Please Enter all the Fields");
     }
 
@@ -72,6 +72,11 @@ const bookDetail = asyncHandler(async (req, res) => {
 
 const updateBookDetail = asyncHandler(async(req, res) => {
     const { bookId, newSummary } = req.body;
+
+    if (!bookId || !newSummary) {
+      res.status(400);
+      throw new Error("Please Enter all the Fields");
+  }
 
   const updatedBook = await Book.findByIdAndUpdate(
     bookId,
