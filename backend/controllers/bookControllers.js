@@ -91,7 +91,7 @@ const updateBookDetail = asyncHandler(async(req, res) => {
     res.status(404);
     throw new Error("Book Not Found");
   } else {
-    res.json(updatedBook);
+    res.status(200).json(updatedBook);
   }
 });
 
@@ -103,7 +103,7 @@ const deleteBook = asyncHandler(async(req, res) => {
     res.status(404);
     throw new Error("Book Not Found");
   } else {
-    res.json(removed);
+    res.status(204).json({message: "Book deleted successfully"});
   }
 }
 )
